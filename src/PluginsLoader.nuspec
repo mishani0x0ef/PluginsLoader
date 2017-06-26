@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>0.1.0.0</version>
+    <title>$title$</title>
+    <authors>Mykhailo.Romaniuk</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/mishani0x0ef/PluginsLoader/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mishani0x0ef/PluginsLoader</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple library for load plugins.</description>
+    <releaseNotes>https://github.com/mishani0x0ef/PluginsLoader/releases</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <dependencies>
+    </dependencies>
+  </metadata>
+</package>

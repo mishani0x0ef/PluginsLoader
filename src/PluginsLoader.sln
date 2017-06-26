@@ -5,6 +5,13 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsLoader", "PluginsLoader.csproj", "{D97C3FD2-3F78-4F95-8EA9-150C5507E3DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{F7C9796A-AC8E-4E25-8DC0-3AB167B8B22B}"
+	ProjectSection(SolutionItems) = preProject
+		..\.build\build.proj = ..\.build\build.proj
+		..\.build\deploy.ps1 = ..\.build\deploy.ps1
+		..\.build\pack-publish.ps1 = ..\.build\pack-publish.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

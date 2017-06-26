@@ -1,0 +1,33 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Main">
+  <PropertyGroup>
+    <PowerShell Condition="'$(PowerShell)'==''">%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShell>
+    <BaseDir>$(MSBuildProjectDirectory)\..</BaseDir>
+    <ProjDir>$(BaseDir)\src</ProjDir>
+    <OutputDir>$(ProjDir)\bin\$(Configuration)</OutputDir>
+    <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+    <SolutionFile>$(BaseDir)\PluginsLoader.sln</SolutionFile>
+  </PropertyGroup>
+  
+  <Target Name="Main" DependsOnTargets="UpdateVersion; Build;" />
+
+  <Target Name="UpdateVersion">
+    <!--todo: implement update assembly version and nuspec version. MR-->
+  </Target>
+  
+  <Target Name="PackageRestore">
+    <Exec Command="$(BaseDir)\.nuget\nuget.exe restore $(SolutionFile)" WorkingDirectory="$(BaseDir)" />
+  </Target>
+
+  <Target Name="Clear">
+    <ItemGroup>
+      <Dirs Include="$(OutputDir)"/>
+    </ItemGroup>
+    
+    <RemoveDir Directories="@(Dirs)" />
+  </Target>
+  
+  <Target Name="Build" DependsOnTargets="PackageRestore; Clear">
+    <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);PerformSigning=True" Targets="Rebuild" />
+  </Target>
+  
+</Project>
