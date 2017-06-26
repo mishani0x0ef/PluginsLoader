@@ -8,7 +8,7 @@ namespace PluginsLoader
     /// <summary>
     /// Default implementation of plugins loader.
     /// </summary>
-    public class PluginsLoader : IPluginsLoader
+    public class DefaultPluginsLoader : IPluginsLoader
     {
         private const string PluginsFileNamePattern = "*.dll";
 

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPluginsLoader.cs" />
+    <Compile Include="DefaultPluginsLoader.cs" />
     <Compile Include="PluginsLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
