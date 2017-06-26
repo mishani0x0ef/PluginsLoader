@@ -7,7 +7,7 @@
     {
         private static IPluginsLoader _defaultLoader;
 
-        private static object _locker;
+        private static object _locker = new object();
 
         /// <summary>
         /// Default and recommended implementation of pugins loader.
