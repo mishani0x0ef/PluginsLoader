@@ -3,7 +3,7 @@
     /// <summary>
     /// Provider of plugins loaders.
     /// </summary>
-    public static class PluginsLoader
+    public static class Loader
     {
         private static IPluginsLoader _defaultLoader;
 
