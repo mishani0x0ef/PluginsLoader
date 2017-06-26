@@ -5,7 +5,7 @@
     <ProjDir>$(BaseDir)\src</ProjDir>
     <OutputDir>$(ProjDir)\bin\$(Configuration)</OutputDir>
     <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
-    <SolutionFile>$(BaseDir)\PluginsLoader.sln</SolutionFile>
+    <SolutionFile>$(ProjDir)\PluginsLoader.sln</SolutionFile>
   </PropertyGroup>
   
   <Target Name="Main" DependsOnTargets="UpdateVersion; Build;" />
@@ -15,10 +15,12 @@
   </Target>
   
   <Target Name="PackageRestore">
+    <Message Text="Restoring Packages..." />
     <Exec Command="$(BaseDir)\.nuget\nuget.exe restore $(SolutionFile)" WorkingDirectory="$(BaseDir)" />
   </Target>
 
   <Target Name="Clear">
+    <Message Text="Clear output directories..." />
     <ItemGroup>
       <Dirs Include="$(OutputDir)"/>
     </ItemGroup>
@@ -27,6 +29,7 @@
   </Target>
   
   <Target Name="Build" DependsOnTargets="PackageRestore; Clear">
+    <Message Text="Build project..." />
     <MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);PerformSigning=True" Targets="Rebuild" />
   </Target>
   

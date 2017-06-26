@@ -6,7 +6,10 @@ Param(
 	[string]$projectDir,
 
     [Parameter(Mandatory=$true)]
-	[string]$projectName
+	[string]$projectName,
+
+    [Parameter(Mandatory=$true)]
+    [string]$apiKey
 )
 Write-Host "Starting packages publisher for ${projectName}"
 
@@ -27,7 +30,7 @@ if(!(Test-Path -Path $nuspec)) {
 
 # Create Packages.
 Write-Host "Create packages for deploy."
-& $nuget pack $projectFullPath
+& $nuget pack $projectFullPath -Properties Configuration=Release
 if($LastExitCode -ne 0) {
 	throw "Creating package failed."
 }
@@ -57,7 +60,7 @@ Write-Host "Publish Packages to NuGet."
 
 foreach($package in $packages) {
     Write-Host "Publish ${package} to NuGet"
-    & $nuget push $package -Source https://www.nuget.org/api/v2/package
+    & $nuget push $package -ApiKey $apiKey -Source https://www.nuget.org/api/v2/package
     Remove-Item -Path $package
 }
 Write-Host "All packages was published."

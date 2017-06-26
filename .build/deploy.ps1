@@ -1,4 +1,7 @@
 Param(
+    [Parameter(Mandatory=$true)]
+    [string]$apiKey,
+
 	[string]$msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\msbuild.exe"
 )
 
@@ -34,7 +37,7 @@ try {
 
     # Publish
     Write-Host "Run package publisher."
-    & "./pack-publish.ps1" $nuget $projDir $projFileName
+    & "./pack-publish.ps1" $nuget $projDir $projFileName $apiKey
 }
 catch [System.Exception] {
     Write-Error "Publish process was terminated because of errors."
