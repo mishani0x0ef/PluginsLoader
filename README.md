@@ -49,13 +49,13 @@ namespace PluginUsage
         public void Test()
         {
             // Get plugins from specific file.
-            var plugins = PluginsLoader.Default.LoadFrom("Plugins/MyPlugins/PluginAssembly.dll");
+            var plugins = Loader.Default.LoadFrom("Plugins/MyPlugins/PluginAssembly.dll");
             
             // Get plugins from dir.
-            plugins = PluginsLoader.Default.LoadFrom("Plugins/MyPlugins");
+            plugins = Loader.Default.LoadFrom("Plugins/MyPlugins");
             
             // Get plugins from dir recursive.
-            plugins = PluginsLoader.Default.LoadFrom("Plugins", true);
+            plugins = Loader.Default.LoadFrom("Plugins", true);
         }
     }
 }
