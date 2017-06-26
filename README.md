@@ -1,4 +1,7 @@
 # PluginsLoader
+
+[NuGet Gallery | PluginsLoader](https://www.nuget.org/packages/PluginsLoader/)
+
 Simple library for load plugins
 
 ## Basic Usage
